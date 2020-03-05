@@ -1,6 +1,7 @@
 [![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://hub.docker.com/r/bestwu/wechat/)
 
 本镜像基于[深度操作系统](https://www.deepin.org/download/)
+### 修复了高分屏缩放问题
 
 ### 准备工作
 
@@ -8,6 +9,11 @@
 
 ```bash
     xhost +
+```
+或者
+
+```bash
+   sudo xhost +
 ```
 
 ## 查看系统audio gid
@@ -27,10 +33,10 @@ audio:x:63:
 ### docker-compose
 
 ```yml
-version: '2'
+version: '3'
 services:
   wechat:
-    image: bestwu/wechat
+    image: alicespace/wechat
     container_name: wechat
     devices:
       - /dev/snd
@@ -45,6 +51,7 @@ services:
       - AUDIO_GID=63 # 可选 默认63（fedora） 主机audio gid 解决声音设备访问权限问题
       - GID=1000 # 可选 默认1000 主机当前用户 gid 解决挂载目录访问权限问题
       - UID=1000 # 可选 默认1000 主机当前用户 uid 解决挂载目录访问权限问题
+      - DPI=125 # dpi放大比例，百分比
 ```
 
 或
@@ -60,5 +67,6 @@ services:
     -e AUDIO_GID=`getent group audio | cut -d: -f3` \
     -e GID=`id -g` \
     -e UID=`id -u` \
-    bestwu/wechat
+    -e DPI=125 \
+    alicespace/wechat
 ```
