@@ -1,5 +1,5 @@
 FROM bestwu/wine:i386
-LABEL maintainer='Peter Wu <piterwu@outlook.com>'
+LABEL maintainer='Alice_space <lizhihao0525@gmail.com>'
 
 RUN echo 'deb https://mirrors.aliyun.com/deepin stable main non-free contrib' > /etc/apt/sources.list && \
     apt-get update && \
@@ -15,7 +15,8 @@ ENV APP=WeChat \
     AUDIO_GID=63 \
     VIDEO_GID=39 \
     GID=1000 \
-    UID=1000
+    UID=1000 \
+    DPI=96
 
 RUN groupadd -o -g $GID wechat && \
     groupmod -o -g $AUDIO_GID audio && \
