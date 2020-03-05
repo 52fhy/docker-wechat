@@ -1,4 +1,4 @@
-[![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://hub.docker.com/r/bestwu/wechat/)
+[docker hub](https://hub.docker.com/r/alicespace/wechat/)
 
 本镜像基于[深度操作系统](https://www.deepin.org/download/)
 ### 修复了高分屏缩放问题
