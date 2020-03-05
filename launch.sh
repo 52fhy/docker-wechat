@@ -9,4 +9,4 @@
     -e GID=`id -g` \
     -e UID=`id -u` \
     -e DPI=125 \
-    wechat
+   alicespace/wechat
