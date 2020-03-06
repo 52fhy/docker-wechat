@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 docker stop wechat &&
 docker container rm wechat &&
 docker run -d --name wechat --device /dev/snd \
@@ -10,5 +11,5 @@ docker run -d --name wechat --device /dev/snd \
     -e AUDIO_GID=`getent group audio | cut -d: -f3` \
     -e GID=`id -g` \
     -e UID=`id -u` \
-    -e DPI=125 \
-   alicespace/wechat
+    -e DPI=140 \
+    alicespace/wechat
