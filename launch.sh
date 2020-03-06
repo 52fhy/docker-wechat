@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 docker stop wechat 
 docker container rm wechat 
 docker run -d --name wechat --device /dev/snd \
