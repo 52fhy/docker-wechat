@@ -6,7 +6,7 @@
 构建方法
 1. 选择一个文件夹
 ```bash
-git clone 
+git clone https://github.com/Alice-space/docker-wechat.git
 cd docker-wechat
 ```
 2. 开始本地构建
