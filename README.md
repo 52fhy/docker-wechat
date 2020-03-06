@@ -3,6 +3,21 @@
 本镜像基于[深度操作系统](https://www.deepin.org/download/)
 ### 修复了高分屏缩放问题
 ### 国内的话请尽量在本地构建，速度会加快
+构建方法
+1. 选择一个文件夹
+```bash
+git clone 
+cd docker-wechat
+```
+2. 开始本地构建
+```bash
+docker build -t wechat .
+```
+3. 启动
+```bash
+sudo chmod +x local_launch.sh
+./local_launch.sh
+```
 ### 准备工作
 
 允许所有用户访问X11服务,运行命令:
