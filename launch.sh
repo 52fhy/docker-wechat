@@ -1,4 +1,6 @@
-    docker run -d --name wechat --device /dev/snd \
+docker stop wechat &&
+docker container rm wechat &&
+docker run -d --name wechat --device /dev/snd \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $HOME/WeChatFiles:/WeChatFiles \
     -e DISPLAY=unix$DISPLAY \
