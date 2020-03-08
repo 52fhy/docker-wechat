@@ -2,7 +2,7 @@
 
 本镜像基于[深度操作系统](https://www.deepin.org/download/)
 ### 修复了高分屏缩放问题
-### 国内的话请尽量在本地构建，速度会加快
+## 国内的话请尽量在本地构建，速度会加快
 构建方法
 1. 选择一个文件夹
 ```bash
@@ -20,7 +20,7 @@ sudo chmod +x local_launch.sh
 ```
 ### 准备工作
 
-允许所有用户访问X11服务,运行命令:
+1. 允许所有用户访问X11服务,运行命令:
 
 ```bash
     xhost +
@@ -30,20 +30,15 @@ sudo chmod +x local_launch.sh
 ```bash
    sudo xhost +
 ```
-
-## 查看系统audio gid
-
+2. KDE桌面环境注意
+本wechat移植自deepin，打包进了一些gnome依赖[deepin-wine-ubuntu#12](https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/12)
+kde桌面环境需要安装gnome-settings-daemon才能正常运行
+安装后寻找gsd-settings并运行
 ```bash
-  cat /etc/group | grep audio
+/usr/lib /gnome-settings-daemon/gsd-xsettings &
 ```
 
-fedora 26 结果：
-
-```bash
-audio:x:63:
-```
-
-### 运行
+## 运行
 
 ### docker-compose
 
