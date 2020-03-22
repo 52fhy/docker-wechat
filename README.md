@@ -61,6 +61,6 @@ sudo chmod +x local_launch.sh
     -e AUDIO_GID=`getent group audio | cut -d: -f3` \
     -e GID=`id -g` \
     -e UID=`id -u` \
-    -e DPI=125 \
+    -e DPI=125 \ # 设定字体DPI
     wechat
 ```
