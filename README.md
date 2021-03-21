@@ -51,16 +51,19 @@ sudo chmod +x local_launch.sh
 ```
 `local_launch.sh`解释
 ```bash
-    docker run -d --name wechat --device /dev/snd \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    -v $HOME/WeChatFiles:/WeChatFiles \
-    -e DISPLAY=unix$DISPLAY \
-    -e XMODIFIERS=@im=fcitx \
-    -e QT_IM_MODULE=fcitx \
-    -e GTK_IM_MODULE=fcitx \
-    -e AUDIO_GID=`getent group audio | cut -d: -f3` \
-    -e GID=`id -g` \
-    -e UID=`id -u` \
-    -e DPI=125 \ # 设定字体DPI
-    wechat
+docker run --rm --name wechat --device /dev/snd \
+ -v /tmp/.X11-unix:/tmp/.X11-unix \
+-v $HOME/WeChatFiles:/WeChatFiles \
+-v "$HOME/WeChatFiles/Applcation Data":'/home/user/.wine/drive_c/users/user/Application Data/' \
+-e DISPLAY \
+-e XMODIFIERS=@im=fcitx \
+-e QT_IM_MODULE=fcitx \
+-e GTK_IM_MODULE=fcitx \
+-e AUDIO_GID=`getent group audio | cut -d: -f3` \
+-e GID=`id -g` \
+-e UID=`id -u` \
+--ipc=host \
+--privileged \
+ -e DPI=150 \
+alicespace/wechat
 ```
